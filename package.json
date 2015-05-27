@@ -1,0 +1,49 @@
+{
+  "name": "throttled-resize",
+  "version": "0.1.0",
+  "description": "ES6 throttled browser resize",
+  "main": "index.js",
+  "scripts": {
+    "test": "browserify -t babelify test.js | testling"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ehtb/throttled-resize.git"
+  },
+  "keywords": [
+    "resize throttled"
+  ],
+  "author": "Edo Balvers <github@edo.me>",
+  "contributors": [],
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^3.0.1",
+    "babelify": "^6.0.2",
+    "browserify": "~4.1.2",
+    "eslint": "^0.20.0",
+    "tape": "~2.12.3",
+    "testling": "~1.6.1"
+  },
+  "dependencies": {
+    "raf": "^2.0.4",
+    "wolfy87-eventemitter": "^4.2.11"
+  },
+  "testling": {
+    "files": "test.js",
+    "browsers": [
+      "iexplore/8..latest",
+      "firefox/16..latest",
+      "chrome/22..latest",
+      "opera/11..latest",
+      "opera/next",
+      "safari/4..latest",
+      "ipad/6..latest",
+      "iphone/6..latest",
+      "android-browser/latest"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/ehtb/throttled-resize/issues"
+  },
+  "homepage": "https://github.com/ehtb/throttled-resize#readme"
+}
