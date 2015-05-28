@@ -1,8 +1,8 @@
 {
   "name": "throttled-resize",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "ES6 throttled browser resize",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "browserify -t babelify test.js | testling"
   },
