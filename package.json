@@ -1,6 +1,6 @@
 {
   "name": "throttled-resize",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ES6 throttled browser resize",
   "main": "index.js",
   "scripts": {
