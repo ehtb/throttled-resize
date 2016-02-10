@@ -3,11 +3,6 @@
 import eventEmitter from 'wolfy87-eventemitter';
 
 export default class Resize extends eventEmitter {
-  handle: int;
-  started: boolean;
-  times: int;
-  onResizeHandle: object;
-
   constructor() {
     super();
 
