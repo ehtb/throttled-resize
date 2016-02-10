@@ -1,18 +1,20 @@
 'use strict';
 
 import eventEmitter from 'wolfy87-eventemitter';
-import raf from 'raf';
 
 export default class Resize extends eventEmitter {
   handle: int;
   started: boolean;
   times: int;
+  onResizeHandle: object;
 
   constructor() {
     super();
 
-    window.addEventListener('resize', this.onResize.bind(this));
-    window.addEventListener('orientationchange', this.onResize.bind(this));
+    this.onResizeHandle = this.onResize.bind(this);
+
+    window.addEventListener('resize', this.onResizeHandle);
+    window.addEventListener('orientationchange', this.onResizeHandle);
   }
 
   onResize() {
@@ -23,22 +25,31 @@ export default class Resize extends eventEmitter {
       this.emitEvent('resize:start');
     }
 
-    if (this.handle !== undefined) {
+    if (this.handle != null) {
       this.times = 0;
 
-      raf.cancel(this.handle);
+      window.cancelAnimationFrame(this.handle);
     }
 
-    this.handle = raf(function tick() {
+    this.handle = window.requestAnimationFrame(function tick() {
       if (++this.times === 10) {
-        this.handle = undefined;
+        this.handle = null;
         this.started = false;
         this.times = 0;
 
         this.emitEvent('resize:end');
       } else {
-        this.handle = raf(tick.bind(this));
+        this.handle = window.requestAnimationFrame(
+          tick.bind(this)
+        );
       }
     }.bind(this));
+  }
+
+  destroy() {
+    window.removeEventListener('resize', this.onResizeHandle);
+    window.removeEventListener('orientationchange', this.onResizeHandle);
+
+    this.removeAllListeners();
   }
 }
