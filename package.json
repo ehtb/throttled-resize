@@ -1,6 +1,6 @@
 {
   "name": "throttled-resize",
-  "version": "0.1.2",
+  "version": "0.3.0",
   "description": "ES6 throttled browser resize",
   "main": "./dist/index.js",
   "scripts": {
@@ -21,11 +21,10 @@
     "babelify": "^6.0.2",
     "browserify": "~4.1.2",
     "eslint": "^0.20.0",
-    "tape": "~2.12.3",
+    "tape": "^4.0.0",
     "testling": "~1.6.1"
   },
   "dependencies": {
-    "raf": "^2.0.4",
     "wolfy87-eventemitter": "^4.2.11"
   },
   "testling": {
