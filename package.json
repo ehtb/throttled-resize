@@ -1,11 +1,10 @@
 {
   "name": "throttled-resize",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "description": "ES6 throttled browser resize",
-  "main": "./dist/index.js",
+  "main": "index.js",
   "scripts": {
-    "test": "browserify -t babelify test.js | testling",
-    "build": "browserify index.js -o dist/index.js -t [ babelify --presets [ es2015 ] ]"
+    "test": "browserify -t [ babelify --presets [ es2015 ] ] test.js | testling"
   },
   "repository": {
     "type": "git",
